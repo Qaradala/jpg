@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студент</title>
+   <style>
+    /* Общий сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Фон сайта */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Черный фон */
+    color: white; /* Белый текст */
+    padding: 20px;
+}
+
+/* Стиль для оверлея */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#overlay-text {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    animation: fade-in 2s ease-in-out;
+}
+
+/* Анимация появления текста */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Шапка сайта */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #f1f1f1;
+}
+
+/* Контейнер с карточками людей */
+#people {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка человека */
+.person {
+    background-color: #111;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+}
+
+.person img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.person img:hover {
+    transform: scale(1.05);
+}
+
+/* Информация о человеке */
+.info {
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.info h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #people {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #people {
+        grid-template-columns: 1fr; /* В одну колонку на маленьких экранах */
+    }
+}
+
+   </style>
+</head>
+<body>
+    <!-- Оверлей с надписью -->
+    <div id="overlay">
+        <h1 id="overlay-text" onclick="hideOverlay()">СТУДЕНТ</h1>
+    </div>
+
+    <!-- Основной контент -->
+    <header>
+        <h1>Студенттер жайлы ақпарат
+            </h1>
+    </header>
+    <main>
+        <section id="people">
+            <!-- Человек 1 -->
+            <div class="person">
+                <img src="qwe3.jpg" alt="Айдана" onclick="showInfo(1)">
+                <div class="info" id="info1">
+                    <h2>Сатай Айдана</h2>
+                    <p>Туған күні:07.12.2006</p>
+                    <p>Мамандық: Дизайн мода</p>
+                    <p>Хобби: Хобби: Дорама қарау, ұйықтау</p>
+                </div>
+            </div>
+            <!-- Человек 2 -->
+            <div class="person">
+                <img src="qwe7.jpg" alt="Сания" onclick="showInfo(2)">
+                <div class="info" id="info2">
+                    <h2>Айтқұл Сания</h2>
+                    <p>Туған күні:29.06.2007  </p>
+                    <p>Мамандық:Дизайн мода </p>
+                    <p>Хобби:тамақ жасау,видео түсіру,билеу</p>
+                </div>
+            </div>
+            <!-- Человек 3 -->
+            <div class="person">
+                <img src="qwe1.jpg" alt="Аяжан" onclick="showInfo(3)">
+                <div class="info" id="info3">
+                    <h2>Алпысбай Аяжан</h2>
+                    <p>Туған күні:02.02.2007</p>
+                    <p>Мамандық:Дизайн мода</p>
+                    <p>Хобби:ойнау,сурет салу</p>
+                </div>
+            </div>
+            <!-- Человек 5 -->
+            <div class="person">
+                <img src="qwe6.jpg" alt="Диана" onclick="showInfo(5)">
+                <div class="info" id="info5">
+                    <h2>Еркебай Диана</h2>
+                    <p>Туған күні:06.01.2007</p>
+                    <p></p>
+                    <p>Хобби:сурет салу,ұйықтау</p>
+                </div>
+            </div>
+            <!-- Человек 6 -->
+            <div class="person">
+                <img src="qwe4.jpg" alt="Анеля" onclick="showInfo(6)">
+                <div class="info" id="info6">
+                    <h2>Кулатова Анеля</h2>
+                    <p>Туған күні: 17.03.2006</p>
+                    <p>Мамандық: азық-түлік өнімдерінің өндірісі</p>
+                    <p>Хобби: музыка, би, кітап, серуендеу</p>
+                </div>
+            </div>
+            <!-- Человек 7 -->
+            <div class="person">
+                <img src="qwe2.jpg" alt="Аяулым" onclick="showInfo(7)">
+                <div class="info" id="info7">
+                    <h2>Копбосын Аяулым</h2>
+                    <p>Туылған күні:17.04.2007</p>
+                    <p>Мамандық: информациялық технологиялар</p>
+                    <p>Хобби:би билеу,сурет</p>
+                </div>
+            </div>
+            <!-- Человек 8 -->
+            <div class="person">
+                <img src="qwe5.jpg" alt="Балауса" onclick="showInfo(8)">
+                <div class="info" id="info8">
+                    <h2>Донбай Балауса</h2>
+                    <p>Туған күні 28.05.07</p>
+                    <p>Мамандық:Физика ғылыми</p>
+                    <p>Хобби:өлең айту,билеу,шет тілдерімен айналысу</p>
+                </div>
+            </div>
+        </section>
+
+    <script>
+        
+        function hideOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        
+        function showInfo(id) {
+            const allInfos = document.querySelectorAll('.info');
+            allInfos.forEach(info => {
+                if (info.id === `info${id}`) {
+                    info.style.display = info.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    info.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
